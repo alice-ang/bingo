@@ -12,12 +12,15 @@ class Grid extends StatefulWidget {
 class _GridState extends State<Grid> {
   int size = 3;
   var clickedId;
+  bool isCrossed = true;
 
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
+  bool _stayClicked(idx) {
+    if (clickedId == idx && isCrossed) {
+      return true;
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,16 +33,19 @@ class _GridState extends State<Grid> {
               clickedId = index;
             })
           },
-          fillColor: clickedId == index ? Colors.red : Colors.white,
+          fillColor: _stayClicked(index)
+              ? const Color.fromARGB(255, 37, 43, 50)
+              : const Color(0x00191c1e),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(0),
               ),
-              side: BorderSide(color: Colors.black, width: 0.5)),
+              side: BorderSide(
+                  color: Color.fromARGB(255, 37, 43, 50), width: 0.5)),
           child: const Center(
             child: Text(
               'hello',
-              style: TextStyle(fontSize: 24, color: Colors.black),
+              style: TextStyle(fontSize: 24, color: Colors.white),
             ),
           ),
         );

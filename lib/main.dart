@@ -11,8 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: const Color(0x00191c1e)),
+      home: const MyHomePage(
         title: 'Bingo',
       ),
     );
@@ -41,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xffF02E65),
+        backgroundColor: const Color(0x00191c1e),
         title: Text(
           widget.title,
           style: const TextStyle(color: Colors.white),
