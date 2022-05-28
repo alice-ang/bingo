@@ -49,12 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
           style: const TextStyle(color: Colors.white),
         ),
       ),
-      body: const Center(child: grid.Grid()),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      body: const Center(
+          child: grid.Grid(
+        size: 4,
+      )),
     );
   }
 }

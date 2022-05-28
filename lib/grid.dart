@@ -1,21 +1,25 @@
-// ignore_for_file: library_private_types_in_public_api
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 class Grid extends StatefulWidget {
-  const Grid({Key? key}) : super(key: key);
+  const Grid({Key? key, required this.size}) : super(key: key);
+
+  final int size;
 
   @override
   _GridState createState() => _GridState();
 }
 
 class _GridState extends State<Grid> {
-  int size = 3;
-  var clickedId;
+  int _clickedId = 0;
   bool isCrossed = true;
 
-  bool _stayClicked(idx) {
-    if (clickedId == idx && isCrossed) {
+  final List bingoNumbers =
+      List<int>.generate(16, (i) => Random().nextInt(100));
+
+  bool _checkIsClicked(idx) {
+    if (_clickedId == idx && isCrossed) {
       return true;
     }
     return false;
@@ -25,15 +29,17 @@ class _GridState extends State<Grid> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: GridView.count(
-      crossAxisCount: size,
-      children: List.generate(size * size, (int index) {
+      crossAxisCount: widget.size,
+      children: List.generate(widget.size * widget.size, (int index) {
         return RawMaterialButton(
+          key: ObjectKey(index.toString()),
           onPressed: () => {
+            print(bingoNumbers),
             setState(() {
-              clickedId = index;
+              _clickedId = index;
             })
           },
-          fillColor: _stayClicked(index)
+          fillColor: _checkIsClicked(index)
               ? const Color.fromARGB(255, 37, 43, 50)
               : const Color(0x00191c1e),
           shape: const RoundedRectangleBorder(
@@ -42,10 +48,10 @@ class _GridState extends State<Grid> {
               ),
               side: BorderSide(
                   color: Color.fromARGB(255, 37, 43, 50), width: 0.5)),
-          child: const Center(
+          child: Center(
             child: Text(
-              'hello',
-              style: TextStyle(fontSize: 24, color: Colors.white),
+              '${bingoNumbers[index]}',
+              style: const TextStyle(fontSize: 24, color: Colors.white),
             ),
           ),
         );
