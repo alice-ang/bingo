@@ -31,19 +31,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   int _selectedIndex = 0;
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
+  static const List<Widget> _pages = <Widget>[
+    grid.Grid(
+      size: 4,
+    ),
+    Icon(
+      Icons.camera,
+      size: 150,
+    ),
+    Icon(
+      Icons.chat,
+      size: 150,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
           style: const TextStyle(color: Colors.amberAccent),
         ),
       ),
-      body: const Center(
-          child: grid.Grid(
-        size: 4,
-      )),
+      // body: const Center(
+      //     child: grid.Grid(
+      //   size: 4,
+      // )),
+      body: Center(
+        child: _pages.elementAt(_selectedIndex), //New
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white10,
         unselectedItemColor: Colors.grey,

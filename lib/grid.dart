@@ -40,7 +40,7 @@ class _GridState extends State<Grid> {
               _clickedId = index;
             })
           },
-          fillColor: _checkIsClicked(index)
+          fillColor: _clickedId == index
               ? const Color.fromARGB(255, 37, 43, 50)
               : const Color(0x00191c1e),
           shape: const RoundedRectangleBorder(
