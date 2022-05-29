@@ -32,10 +32,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
+  int _selectedIndex = 0;
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
     });
   }
 
@@ -46,13 +52,35 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: const Color(0x00191c1e),
         title: Text(
           widget.title,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.amberAccent),
         ),
       ),
       body: const Center(
           child: grid.Grid(
         size: 4,
       )),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white10,
+        unselectedItemColor: Colors.grey,
+        elevation: 0,
+        selectedItemColor: Colors.amberAccent,
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.gamepad),
+            label: 'Game',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: 'Camera',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+        ],
+      ),
     );
   }
 }

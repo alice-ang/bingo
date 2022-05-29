@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class Grid extends StatefulWidget {
@@ -25,6 +24,13 @@ class _GridState extends State<Grid> {
     return false;
   }
 
+  bool _checkWin(idx) {
+    if (_clickedId == idx && isCrossed) {
+      return true;
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +40,6 @@ class _GridState extends State<Grid> {
         return RawMaterialButton(
           key: ObjectKey(index.toString()),
           onPressed: () => {
-            print(bingoNumbers),
             setState(() {
               _clickedId = index;
             })
