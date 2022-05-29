@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: const Color(0x00191c1e)),
       home: const MyHomePage(
-        title: 'Bingo',
+        title: 'Good Omens',
       ),
     );
   }
@@ -44,12 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
       size: 4,
     ),
     Icon(
-      Icons.camera,
+      Icons.add,
       size: 150,
+      color: Colors.amberAccent,
     ),
     Icon(
-      Icons.chat,
+      Icons.person,
       size: 150,
+      color: Colors.amberAccent,
     ),
   ];
 
@@ -63,12 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
           style: const TextStyle(color: Colors.amberAccent),
         ),
       ),
-      // body: const Center(
-      //     child: grid.Grid(
-      //   size: 4,
-      // )),
       body: Center(
-        child: _pages.elementAt(_selectedIndex), //New
+        child: _pages.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white10,

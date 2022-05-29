@@ -11,11 +11,16 @@ class Grid extends StatefulWidget {
 
 class _GridState extends State<Grid> {
   int _clickedId = 0;
-  bool isCrossed = true;
+  bool isCrossed = false;
+  final List _clickedTiles = [];
 
   bool _checkIsClicked(idx) {
-    if (_clickedId == idx && isCrossed) {
+    if (_clickedId == idx && !_clickedTiles.contains(idx)) {
+      _clickedTiles.add(idx);
       return true;
+    }
+    if (_clickedTiles.contains(idx)) {
+      _clickedTiles.remove(idx);
     }
     return false;
   }
@@ -38,10 +43,11 @@ class _GridState extends State<Grid> {
           onPressed: () => {
             setState(() {
               _clickedId = index;
+              _checkIsClicked(index);
             })
           },
-          fillColor: _clickedId == index
-              ? const Color.fromARGB(255, 37, 43, 50)
+          fillColor: _clickedTiles.contains(index)
+              ? Colors.amberAccent
               : const Color(0x00191c1e),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
@@ -52,7 +58,11 @@ class _GridState extends State<Grid> {
           child: Center(
             child: Text(
               'Rule ${index + 1}',
-              style: const TextStyle(fontSize: 16, color: Colors.white),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: _clickedTiles.contains(index)
+                      ? Colors.black
+                      : Colors.white),
             ),
           ),
         );
