@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 class Grid extends StatefulWidget {
@@ -13,9 +12,6 @@ class Grid extends StatefulWidget {
 class _GridState extends State<Grid> {
   int _clickedId = 0;
   bool isCrossed = true;
-
-  final List bingoNumbers =
-      List<int>.generate(16, (i) => Random().nextInt(100));
 
   bool _checkIsClicked(idx) {
     if (_clickedId == idx && isCrossed) {
@@ -55,8 +51,8 @@ class _GridState extends State<Grid> {
                   color: Color.fromARGB(255, 37, 43, 50), width: 0.5)),
           child: Center(
             child: Text(
-              '${bingoNumbers[index]}',
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              'Rule ${index + 1}',
+              style: const TextStyle(fontSize: 16, color: Colors.white),
             ),
           ),
         );

@@ -72,12 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Game',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
+            icon: Icon(Icons.add),
+            label: 'Rules',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
+            icon: Icon(Icons.person),
+            label: 'Account',
           ),
         ],
       ),
