@@ -68,19 +68,24 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               button.NeuButton(
+                size: 26,
                 radius: const BorderRadius.all(
                   Radius.circular(0),
                 ),
                 color: Colors.yellow,
                 icon: const Icon(
                   Icons.menu,
-                  size: 24,
+                  size: 20,
                   color: Colors.black,
                 ),
               ),
               Text(
                 widget.title,
-                style: const TextStyle(color: Colors.black),
+                style: const TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                '',
               )
             ]),
       ),

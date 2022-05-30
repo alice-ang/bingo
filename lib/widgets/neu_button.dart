@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 class NeuButton extends StatefulWidget {
   NeuButton(
-      {Key? key, required this.color, required this.icon, required this.radius})
+      {Key? key,
+      required this.color,
+      required this.icon,
+      required this.radius,
+      required this.size})
       : super(
           key: key,
         );
@@ -10,6 +14,7 @@ class NeuButton extends StatefulWidget {
   final Color color;
   final Widget icon;
   final BorderRadius radius;
+  final double size;
 
   @override
   State<NeuButton> createState() => _NeuButtonState();
@@ -32,8 +37,8 @@ class _NeuButtonState extends State<NeuButton> {
             )
           ]),
       child: SizedBox(
-        height: 30,
-        width: 30,
+        height: widget.size,
+        width: widget.size,
         child: TextButton(
           onPressed: () => {Scaffold.of(context).openDrawer()},
           style: TextButton.styleFrom(
