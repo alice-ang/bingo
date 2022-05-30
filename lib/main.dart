@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.lightGreen.shade200,
           unselectedItemColor: Colors.black,
           elevation: 0,
-          selectedItemColor: Colors.yellow,
+          selectedItemColor: Colors.red,
           onTap: _onItemTapped,
           currentIndex: _selectedIndex,
           items: const <BottomNavigationBarItem>[

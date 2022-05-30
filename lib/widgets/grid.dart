@@ -34,8 +34,12 @@ class _GridState extends State<Grid> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.count(
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 12,
+        right: 12,
+      ),
+      child: GridView.count(
         crossAxisCount: widget.size,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
@@ -60,8 +64,9 @@ class _GridState extends State<Grid> {
                   _checkIsClicked(index);
                 })
               },
-              fillColor:
-                  _clickedTiles.contains(index) ? Colors.yellow : Colors.grey,
+              fillColor: _clickedTiles.contains(index)
+                  ? Colors.yellow
+                  : Colors.grey.shade400,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(8),
