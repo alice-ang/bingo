@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'grid.dart' as grid;
+import 'widgets/grid.dart' as grid;
+import 'package:bingo/widgets/neu_button.dart' as button;
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0x00191c1e)),
+      theme: ThemeData(scaffoldBackgroundColor: const Color(0xfff5f2d9)),
       home: const MyHomePage(
         title: 'Good Omens',
       ),
@@ -59,18 +60,58 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0x00191c1e),
+        elevation: 0,
+        backgroundColor: const Color(0xfff5f2d9),
+        leading: button.NeuButton(
+            color: Colors.yellow,
+            icon: const Center(
+              child: Icon(
+                Icons.menu,
+                size: 24,
+                color: Colors.black,
+              ),
+            )),
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
           widget.title,
-          style: const TextStyle(color: Colors.amberAccent),
+          style: const TextStyle(color: Colors.black),
         ),
       ),
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),
+      drawer: Drawer(
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white10,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.black,
         elevation: 0,
         selectedItemColor: Colors.amberAccent,
         onTap: _onItemTapped,
