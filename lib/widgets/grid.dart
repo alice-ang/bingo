@@ -37,6 +37,8 @@ class _GridState extends State<Grid> {
     return Scaffold(
       body: GridView.count(
         crossAxisCount: widget.size,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
         children: List.generate(widget.size * widget.size, (int index) {
           return RawMaterialButton(
             key: ObjectKey(index.toString()),
@@ -53,8 +55,7 @@ class _GridState extends State<Grid> {
               borderRadius: BorderRadius.all(
                 Radius.circular(0),
               ),
-              side: BorderSide(
-                  color: Color.fromARGB(255, 37, 43, 50), width: 0.5),
+              side: BorderSide(color: Colors.black, width: 2),
             ),
             child: Center(
               child: Text(
