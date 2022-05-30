@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xfff5f2d9)),
       home: const MyHomePage(
-        title: 'Good Omens',
+        title: 'Bingo',
       ),
     );
   }
@@ -47,12 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
     Icon(
       Icons.add,
       size: 150,
-      color: Colors.amberAccent,
+      color: Colors.red,
     ),
     Icon(
       Icons.person,
       size: 150,
-      color: Colors.amberAccent,
+      color: Colors.red,
     ),
   ];
 
@@ -62,28 +62,33 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xfff5f2d9),
-        leading: button.NeuButton(
-            color: Colors.yellow,
-            icon: const Center(
-              child: Icon(
-                Icons.menu,
-                size: 24,
-                color: Colors.black,
+        automaticallyImplyLeading: false,
+        title: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              button.NeuButton(
+                radius: const BorderRadius.all(
+                  Radius.circular(0),
+                ),
+                color: Colors.yellow,
+                icon: const Icon(
+                  Icons.menu,
+                  size: 24,
+                  color: Colors.black,
+                ),
               ),
-            )),
-        iconTheme: const IconThemeData(color: Colors.black),
-        title: Text(
-          widget.title,
-          style: const TextStyle(color: Colors.black),
-        ),
+              Text(
+                widget.title,
+                style: const TextStyle(color: Colors.black),
+              )
+            ]),
       ),
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),
       drawer: Drawer(
-        // space to fit everything.
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
@@ -113,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white10,
         unselectedItemColor: Colors.black,
         elevation: 0,
-        selectedItemColor: Colors.amberAccent,
+        selectedItemColor: Colors.red,
         onTap: _onItemTapped,
         currentIndex: _selectedIndex,
         items: const <BottomNavigationBarItem>[
