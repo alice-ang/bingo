@@ -47,110 +47,119 @@ class _MyHomePageState extends State<MyHomePage> {
     Icon(
       Icons.add,
       size: 150,
-      color: Colors.red,
+      color: Colors.black,
     ),
     Icon(
       Icons.person,
       size: 150,
-      color: Colors.red,
+      color: Colors.black,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(65.0),
-            child: AppBar(
-              elevation: 0,
-              backgroundColor: const Color(0xfff5f2d9),
-              automaticallyImplyLeading: false,
-              title: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    button.NeuButton(
-                      size: 26,
-                      radius: const BorderRadius.all(
-                        Radius.circular(0),
-                      ),
-                      color: Colors.red,
-                      icon: const Icon(
-                        Icons.menu,
-                        size: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      widget.title,
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                    ),
-                    const Text(
-                      '',
-                    )
-                  ]),
-            )),
-        body: Center(
-          child: _pages.elementAt(_selectedIndex),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Drawer Header'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-            border: Border(
-              top: BorderSide(width: 1, color: Colors.black),
-            ),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            unselectedItemColor: Colors.black,
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(65.0),
+          child: AppBar(
             elevation: 0,
-            selectedItemColor: Colors.red,
-            onTap: _onItemTapped,
-            currentIndex: _selectedIndex,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.gamepad),
-                label: 'Game',
+            backgroundColor: const Color(0xfff5f2d9),
+            automaticallyImplyLeading: false,
+            title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  button.NeuButton(
+                    size: 26,
+                    radius: const BorderRadius.all(
+                      Radius.circular(0),
+                    ),
+                    color: Colors.red,
+                    icon: const Icon(
+                      Icons.menu,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    widget.title,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                  ),
+                  const Text(
+                    '',
+                  )
+                ]),
+          )),
+      body: Center(
+        child: _pages.elementAt(_selectedIndex),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.add),
-                label: 'Rules',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Account',
-              ),
-            ],
-          ),
-        ));
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(0),
+            ),
+            border: Border.all(color: Colors.black, width: 3),
+            boxShadow: const [
+              BoxShadow(
+                spreadRadius: 0,
+                blurRadius: 0,
+                offset: Offset(3, 6),
+              )
+            ]),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.lightGreen.shade200,
+          unselectedItemColor: Colors.black,
+          elevation: 0,
+          selectedItemColor: Colors.yellow,
+          onTap: _onItemTapped,
+          currentIndex: _selectedIndex,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.gamepad),
+              label: 'Game',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: 'Rules',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Account',
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
