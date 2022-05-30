@@ -45,47 +45,44 @@ class _GridState extends State<Grid> {
         mainAxisSpacing: 12,
         children: List.generate(widget.size * widget.size, (int index) {
           return Container(
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8),
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: Offset(3, 6),
+                    )
+                  ]),
+              child: RawMaterialButton(
+                key: ObjectKey(index.toString()),
+                onPressed: () => {
+                  setState(() {
+                    _clickedId = index;
+                    _checkIsClicked(index);
+                  })
+                },
+                fillColor: _clickedTiles.contains(index)
+                    ? Colors.yellow
+                    : Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                  side: BorderSide(color: Colors.black, width: 2),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    spreadRadius: 0,
-                    blurRadius: 0,
-                    offset: Offset(3, 6),
-                  )
-                ]),
-            child: RawMaterialButton(
-              key: ObjectKey(index.toString()),
-              onPressed: () => {
-                setState(() {
-                  _clickedId = index;
-                  _checkIsClicked(index);
-                })
-              },
-              fillColor: _clickedTiles.contains(index)
-                  ? Colors.yellow
-                  : Colors.grey.shade400,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8),
+                child: Center(
+                  child: Text(
+                    'Rule ${index + 1}',
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
                 ),
-                side: BorderSide(color: Colors.black, width: 2),
-              ),
-              child: Center(
-                child: Text(
-                  'Rule ${index + 1}',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: _clickedTiles.contains(index)
-                          ? Colors.black
-                          : Colors.white),
-                ),
-              ),
-            ),
-          );
+              ));
         }),
       ),
     );
