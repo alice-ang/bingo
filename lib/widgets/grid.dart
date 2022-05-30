@@ -41,13 +41,17 @@ class _GridState extends State<Grid> {
         mainAxisSpacing: 12,
         children: List.generate(widget.size * widget.size, (int index) {
           return Container(
-            decoration: const BoxDecoration(boxShadow: [
-              BoxShadow(
-                spreadRadius: 0,
-                blurRadius: 0,
-                offset: Offset(3, 6),
-              )
-            ]),
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    spreadRadius: 0,
+                    blurRadius: 0,
+                    offset: Offset(3, 6),
+                  )
+                ]),
             child: RawMaterialButton(
               key: ObjectKey(index.toString()),
               onPressed: () => {
@@ -56,12 +60,11 @@ class _GridState extends State<Grid> {
                   _checkIsClicked(index);
                 })
               },
-              fillColor: _clickedTiles.contains(index)
-                  ? Colors.amberAccent
-                  : Colors.grey,
+              fillColor:
+                  _clickedTiles.contains(index) ? Colors.yellow : Colors.grey,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(0),
+                  Radius.circular(8),
                 ),
                 side: BorderSide(color: Colors.black, width: 2),
               ),
@@ -70,6 +73,7 @@ class _GridState extends State<Grid> {
                   'Rule ${index + 1}',
                   style: TextStyle(
                       fontSize: 16,
+                      fontWeight: FontWeight.bold,
                       color: _clickedTiles.contains(index)
                           ? Colors.black
                           : Colors.white),
