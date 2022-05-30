@@ -33,7 +33,7 @@ class _NeuButtonState extends State<NeuButton> {
               color: Colors.black,
               spreadRadius: 0,
               blurRadius: 0,
-              offset: Offset(2, 4),
+              offset: Offset(3, 3),
             )
           ]),
       child: SizedBox(

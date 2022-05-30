@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.red,
                     icon: const Icon(
                       Icons.menu,
-                      size: 20,
+                      size: 26,
                       color: Colors.black,
                     ),
                   ),
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
               BoxShadow(
                 spreadRadius: 0,
                 blurRadius: 0,
-                offset: Offset(3, 6),
+                offset: Offset(3, 4),
               )
             ]),
         child: BottomNavigationBar(
