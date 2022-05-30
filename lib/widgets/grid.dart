@@ -40,31 +40,40 @@ class _GridState extends State<Grid> {
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
         children: List.generate(widget.size * widget.size, (int index) {
-          return RawMaterialButton(
-            key: ObjectKey(index.toString()),
-            onPressed: () => {
-              setState(() {
-                _clickedId = index;
-                _checkIsClicked(index);
-              })
-            },
-            fillColor: _clickedTiles.contains(index)
-                ? Colors.amberAccent
-                : const Color(0x00191c1e),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(0),
+          return Container(
+            decoration: const BoxDecoration(boxShadow: [
+              BoxShadow(
+                spreadRadius: 0,
+                blurRadius: 0,
+                offset: Offset(3, 6),
+              )
+            ]),
+            child: RawMaterialButton(
+              key: ObjectKey(index.toString()),
+              onPressed: () => {
+                setState(() {
+                  _clickedId = index;
+                  _checkIsClicked(index);
+                })
+              },
+              fillColor: _clickedTiles.contains(index)
+                  ? Colors.amberAccent
+                  : Colors.grey,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(0),
+                ),
+                side: BorderSide(color: Colors.black, width: 2),
               ),
-              side: BorderSide(color: Colors.black, width: 2),
-            ),
-            child: Center(
-              child: Text(
-                'Rule ${index + 1}',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: _clickedTiles.contains(index)
-                        ? Colors.black
-                        : Colors.white),
+              child: Center(
+                child: Text(
+                  'Rule ${index + 1}',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: _clickedTiles.contains(index)
+                          ? Colors.black
+                          : Colors.white),
+                ),
               ),
             ),
           );
