@@ -23,8 +23,8 @@ class _DrawerState extends State<StyledDrawer> {
                 decoration: BoxDecoration(
                   color: Colors.deepPurple.shade300,
                   borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
+                      topRight: Radius.circular(0),
+                      bottomRight: Radius.circular(100)),
                   border: Border.all(color: Colors.black, width: 3),
                 ),
                 child: const Text('hej')),
