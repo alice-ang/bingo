@@ -53,6 +53,13 @@ class _DrawerState extends State<StyledDrawer> {
                     topRight: Radius.circular(0),
                     bottomRight: Radius.circular(100)),
                 border: Border.all(color: Colors.black, width: 3),
+                boxShadow: const [
+                  BoxShadow(
+                    spreadRadius: 0,
+                    blurRadius: 0,
+                    offset: Offset(3, 6),
+                  )
+                ],
               ),
               child: const Text(
                 'Hello!',
