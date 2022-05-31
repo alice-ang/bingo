@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets/grid.dart' as grid;
 import 'package:bingo/widgets/neu_button.dart' as button;
+import 'widgets/styled_drawer.dart' as drawer;
 
 void main() {
   runApp(const MyApp());
@@ -96,33 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: drawer.StyledDrawer(),
       bottomNavigationBar: Container(
         margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
         decoration: BoxDecoration(
