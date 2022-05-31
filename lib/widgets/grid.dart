@@ -34,57 +34,52 @@ class _GridState extends State<Grid> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(
-        left: 12,
-        right: 12,
-      ),
-      child: GridView.count(
-        crossAxisCount: widget.size,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
-        children: List.generate(widget.size * widget.size, (int index) {
-          return Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      spreadRadius: 0,
-                      blurRadius: 0,
-                      offset: Offset(3, 6),
-                    )
-                  ]),
-              child: RawMaterialButton(
-                key: ObjectKey(index.toString()),
-                onPressed: () => {
-                  setState(() {
-                    _clickedId = index;
-                    _checkIsClicked(index);
-                  })
-                },
-                fillColor: _clickedTiles.contains(index)
-                    ? Colors.yellow
-                    : Colors.white,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                  side: BorderSide(color: Colors.black, width: 2),
+    return GridView.count(
+      padding: const EdgeInsets.all(12),
+      shrinkWrap: true,
+      crossAxisCount: widget.size,
+      crossAxisSpacing: 12,
+      mainAxisSpacing: 12,
+      children: List.generate(widget.size * widget.size, (int index) {
+        return Container(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
                 ),
-                child: Center(
-                  child: Text(
-                    'Rule ${index + 1}',
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
+                boxShadow: [
+                  BoxShadow(
+                    spreadRadius: 0,
+                    blurRadius: 0,
+                    offset: Offset(3, 6),
+                  )
+                ]),
+            child: RawMaterialButton(
+              key: ObjectKey(index.toString()),
+              onPressed: () => {
+                setState(() {
+                  _clickedId = index;
+                  _checkIsClicked(index);
+                })
+              },
+              fillColor:
+                  _clickedTiles.contains(index) ? Colors.yellow : Colors.white,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
                 ),
-              ));
-        }),
-      ),
+                side: BorderSide(color: Colors.black, width: 2),
+              ),
+              child: Center(
+                child: Text(
+                  'Rule ${index + 1}',
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+              ),
+            ));
+      }),
     );
   }
 }

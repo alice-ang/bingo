@@ -46,8 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static const List<Widget> _pages = <Widget>[
-    grid.Grid(
-      size: 4,
+    Center(
+      child: grid.Grid(
+        size: 4,
+      ),
     ),
     Icon(
       Icons.add,
