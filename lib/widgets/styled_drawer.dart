@@ -57,7 +57,7 @@ class _DrawerState extends State<StyledDrawer> {
                   BoxShadow(
                     spreadRadius: 0,
                     blurRadius: 0,
-                    offset: Offset(3, 6),
+                    offset: Offset(0, 3),
                   )
                 ],
               ),
