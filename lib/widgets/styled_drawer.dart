@@ -27,7 +27,13 @@ class _DrawerState extends State<StyledDrawer> {
                       bottomRight: Radius.circular(100)),
                   border: Border.all(color: Colors.black, width: 3),
                 ),
-                child: const Text('hej')),
+                child: const Text(
+                  'Hello!',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
           ),
           Expanded(
             child: SizedBox(
@@ -58,9 +64,7 @@ class _DrawerState extends State<StyledDrawer> {
                               child: Text(
                             'Item ${index + 1}',
                             style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                fontSize: 16, color: Colors.black),
                           )),
                         ),
                       );
