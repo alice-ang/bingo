@@ -12,7 +12,7 @@ class _DrawerState extends State<StyledDrawer> {
     4,
     (int index) {
       return Container(
-        margin: const EdgeInsets.only(top: 24),
+        margin: const EdgeInsets.only(top: 24, right: 24, left: 24),
         decoration: BoxDecoration(
             color: Colors.greenAccent.shade200,
             borderRadius: const BorderRadius.all(
@@ -42,30 +42,28 @@ class _DrawerState extends State<StyledDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: const Color(0xfff5f2d9),
-      child: ListView(
-          padding: const EdgeInsets.only(right: 24, left: 24),
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: DrawerHeader(
-                  margin: EdgeInsets.zero,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade300,
-                    borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(0),
-                        bottomRight: Radius.circular(100)),
-                    border: Border.all(color: Colors.black, width: 3),
-                  ),
-                  child: const Text(
-                    'Hello!',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
-            ),
-            ...menu,
-          ]),
+      child: ListView(children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: DrawerHeader(
+              margin: EdgeInsets.zero,
+              decoration: BoxDecoration(
+                color: Colors.deepPurple.shade300,
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(0),
+                    bottomRight: Radius.circular(100)),
+                border: Border.all(color: Colors.black, width: 3),
+              ),
+              child: const Text(
+                'Hello!',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
+        ),
+        ...menu,
+      ]),
     );
   }
 }
