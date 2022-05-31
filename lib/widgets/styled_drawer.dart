@@ -56,7 +56,7 @@ class _DrawerState extends State<StyledDrawer> {
                           style: ListTileStyle.list,
                           title: Center(
                               child: Text(
-                            'Rule ${index + 1}',
+                            'Item ${index + 1}',
                             style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,

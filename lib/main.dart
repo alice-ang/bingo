@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: drawer.StyledDrawer(),
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(
               Radius.circular(0),
