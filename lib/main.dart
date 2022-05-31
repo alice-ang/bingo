@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'widgets/grid.dart' as grid;
 import 'package:bingo/widgets/neu_button.dart' as button;
@@ -15,7 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0xfff5f2d9)),
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xfff5f2d9),
+        textTheme: GoogleFonts.robotoMonoTextTheme(),
+      ),
       home: const MyHomePage(
         title: 'Bingo',
       ),

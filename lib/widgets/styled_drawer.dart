@@ -16,24 +16,18 @@ class _DrawerState extends State<StyledDrawer> {
         verticalDirection: VerticalDirection.down,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            decoration: const BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(color: Colors.black, width: 3))),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width / 2,
-              child: DrawerHeader(
-                  margin: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade200,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                    border: Border.all(color: Colors.black, width: 3),
-                  ),
-                  child: const Text('hej')),
-            ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: DrawerHeader(
+                margin: EdgeInsets.zero,
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple.shade300,
+                  borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                  border: Border.all(color: Colors.black, width: 3),
+                ),
+                child: const Text('hej')),
           ),
           Expanded(
             child: SizedBox(
@@ -46,7 +40,7 @@ class _DrawerState extends State<StyledDrawer> {
                       return Container(
                         margin: const EdgeInsets.only(top: 24),
                         decoration: BoxDecoration(
-                            color: Colors.lightGreen.shade200,
+                            color: Colors.greenAccent.shade200,
                             borderRadius: const BorderRadius.all(
                               Radius.circular(0),
                             ),
