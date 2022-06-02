@@ -1,8 +1,6 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'widgets/grid.dart' as grid;
-import 'package:bingo/widgets/neu_button.dart' as button;
-import 'widgets/styled_drawer.dart' as drawer;
+import 'package:bingo/widgets/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static const List<Widget> _pages = <Widget>[
     Center(
-      child: grid.Grid(
+      child: Grid(
         size: 4,
       ),
     ),
@@ -76,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  button.NeuButton(
+                  NeuButton(
                     size: 26,
                     radius: const BorderRadius.all(
                       Radius.circular(0),
@@ -103,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),
-      drawer: drawer.StyledDrawer(),
+      drawer: StyledDrawer(),
       bottomNavigationBar: Container(
         margin: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
         decoration: BoxDecoration(
