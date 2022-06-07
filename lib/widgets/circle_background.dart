@@ -19,7 +19,7 @@ class CircleBackground extends StatelessWidget {
               right: 10,
               child: Circle(
                 color: Colors.pinkAccent.shade100,
-                size: 100.0,
+                size: 80.0,
               ),
             ),
             Positioned(
