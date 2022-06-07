@@ -43,32 +43,28 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  static const List<Widget> _pages = <Widget>[
-    Center(
+  static final List<Widget> _pages = <Widget>[
+    const Center(
       child: Grid(
         size: 4,
       ),
     ),
-    Icon(
-      Icons.add,
-      size: 150,
-      color: Colors.black,
+    const CircularProgressIndicator(
+      backgroundColor: Colors.red,
     ),
-    Icon(
-      Icons.person,
-      size: 150,
-      color: Colors.black,
-    ),
+    const Text("HEK"),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      extendBody: true,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(65.0),
           child: AppBar(
             elevation: 0,
-            backgroundColor: const Color(0xfff5f2d9),
+            backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
             title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,8 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
                 ]),
           )),
-      body: Center(
-        child: _pages.elementAt(_selectedIndex),
+      body: CircleBackground(
+        childWidget: Center(
+          child: _pages.elementAt(_selectedIndex),
+        ),
       ),
       drawer: StyledDrawer(),
       bottomNavigationBar: Container(
