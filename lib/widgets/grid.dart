@@ -35,6 +35,7 @@ class _GridState extends State<Grid> {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(12),
       shrinkWrap: true,
       crossAxisCount: widget.size,
