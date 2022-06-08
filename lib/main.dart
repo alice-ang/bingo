@@ -1,6 +1,6 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'widgets/grid.dart' as grid;
-import 'package:bingo/widgets/neu_button.dart' as button;
+import 'package:bingo/widgets/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0xfff5f2d9)),
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xfff5f2d9),
+        textTheme: GoogleFonts.robotoMonoTextTheme(),
+      ),
       home: const MyHomePage(
         title: 'Bingo',
       ),
@@ -40,36 +43,34 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  static const List<Widget> _pages = <Widget>[
-    grid.Grid(
-      size: 4,
+  static final List<Widget> _pages = <Widget>[
+    const Center(
+      child: Grid(
+        size: 4,
+      ),
     ),
-    Icon(
-      Icons.add,
-      size: 150,
-      color: Colors.black,
+    const CircularProgressIndicator(
+      backgroundColor: Colors.red,
     ),
-    Icon(
-      Icons.person,
-      size: 150,
-      color: Colors.black,
-    ),
+    const Text("HEK"),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      extendBody: true,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(65.0),
           child: AppBar(
             elevation: 0,
-            backgroundColor: const Color(0xfff5f2d9),
+            backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
             title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  button.NeuButton(
+                  NeuButton(
                     size: 26,
                     radius: const BorderRadius.all(
                       Radius.circular(0),
@@ -93,38 +94,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
                 ]),
           )),
-      body: Center(
-        child: _pages.elementAt(_selectedIndex),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
+      body: CircleBackground(
+        childWidget: Center(
+          child: _pages.elementAt(_selectedIndex),
         ),
       ),
+      drawer: StyledDrawer(),
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(
               Radius.circular(0),
