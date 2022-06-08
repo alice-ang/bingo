@@ -15,11 +15,11 @@ class CircleBackground extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Stack(children: <Widget>[
             Positioned(
-              top: 10,
-              right: 10,
+              top: 90,
+              right: 20,
               child: Circle(
                 color: Colors.pinkAccent.shade100,
-                size: 80.0,
+                size: 50.0,
               ),
             ),
             Positioned(
