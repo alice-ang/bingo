@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xfff5f2d9),
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
-      home: LoginScreen(),
+      home: const GamesScreen(),
+      // home: const MyHomePage(
+      //   title: 'Home',
+      // ),
     );
   }
 }
