@@ -25,17 +25,18 @@ class _NeuButtonState extends State<NeuButton> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: widget.color,
-          border: Border.all(color: Colors.black, width: 3),
-          borderRadius: widget.radius,
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black,
-              spreadRadius: 0,
-              blurRadius: 0,
-              offset: Offset(3, 3),
-            )
-          ]),
+        color: widget.color,
+        border: Border.all(color: Colors.black, width: 3),
+        borderRadius: widget.radius,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black,
+            spreadRadius: 0,
+            blurRadius: 0,
+            offset: Offset(3, 3),
+          )
+        ],
+      ),
       child: SizedBox(
         height: widget.size,
         width: widget.size,

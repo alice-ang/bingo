@@ -1,4 +1,5 @@
 export 'bottom_nav.dart';
+export 'card.dart';
 export 'circle_background.dart';
 export 'circle.dart';
 export 'grid.dart';
