@@ -29,7 +29,7 @@ class GamesScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      margin: const EdgeInsets.fromLTRB(12, 6, 12, 6),
+                      margin: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                       child: Column(
                         children: [
                           Row(
