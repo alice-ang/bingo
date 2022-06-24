@@ -31,7 +31,7 @@ class _NeuButtonState extends State<NeuButton> {
         color: widget.color,
         border: Border.all(color: Colors.black, width: 3),
         borderRadius: widget.radius,
-        shape: widget.shape!,
+        shape: widget.shape ?? BoxShape.rectangle,
         boxShadow: const [
           BoxShadow(
             color: Colors.black,
@@ -45,7 +45,7 @@ class _NeuButtonState extends State<NeuButton> {
         height: widget.size,
         width: widget.size,
         child: TextButton(
-          onPressed: () => widget.onPressed,
+          onPressed: widget.onPressed,
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,

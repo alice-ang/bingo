@@ -1,5 +1,5 @@
-import 'package:bingo/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:bingo/widgets/widgets.dart';
 
 class GamesScreen extends StatelessWidget {
   const GamesScreen({Key? key}) : super(key: key);
@@ -7,6 +7,7 @@ class GamesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: CircleBackground(
         childWidget: Column(
           children: [
