@@ -1,19 +1,71 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key, this.leading, this.backgroundColor, this.title})
-      : super(key: key);
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({Key? key, required this.title}) : super(key: key);
 
-  final Widget? leading;
-  final Color? backgroundColor;
-  final Widget? title;
+  final String title;
 
   @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 40);
+  @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: leading,
-      backgroundColor: backgroundColor,
-      title: title,
-    );
+    return PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight + 40),
+        child: ClipPath(
+          clipper: WaveClip(),
+          child: Container(
+            color: Colors.redAccent,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
+}
+
+class WaveClip extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    final lowPoint = size.height - 25;
+    final highPoint = size.height - 40;
+    path.lineTo(0, size.height);
+    path.quadraticBezierTo(size.width / 4, highPoint, size.width / 2, lowPoint);
+    path.quadraticBezierTo(
+        3 / 4 * size.width, size.height, size.width, lowPoint);
+    path.lineTo(size.width, 0);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
+class RoundShape extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    double height = size.height;
+    double width = size.width;
+    double curveHeight = size.height / 2;
+    var p = Path();
+    p.lineTo(0, height - curveHeight);
+    p.quadraticBezierTo(width / 2, height, width, height - curveHeight);
+    p.lineTo(width, 0);
+    p.close();
+    return p;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) => true;
 }

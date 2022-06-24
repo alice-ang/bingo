@@ -53,7 +53,7 @@ class HotReload extends StatelessWidget {
                   useCases: [
                     WidgetbookUseCase(
                       name: 'LoginScreen',
-                      builder: (context) => const LoginScreen(),
+                      builder: (context) => const LoginScreenStory(),
                     ),
                   ],
                 ),
@@ -87,7 +87,7 @@ class HotReload extends StatelessWidget {
           data: ThemeData.dark(),
         ),
       ],
-      appInfo: AppInfo(name: 'Meal App'),
+      appInfo: AppInfo(name: 'Kooligans'),
     );
   }
 }
