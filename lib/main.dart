@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Builder(
                   builder: (context) => NeuButton(
-                    size: 26,
+                    size: 32,
                     radius: const BorderRadius.all(
                       Radius.circular(0),
                     ),
