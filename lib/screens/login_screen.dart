@@ -23,22 +23,14 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(18),
                 child: const Text(
-                  'Bingo App',
+                  'Foggy goggles',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 30,
                   ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
@@ -143,6 +135,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   )
                 ],
+              ),
+              const Text(
+                'Or continue with',
+                textAlign: TextAlign.center,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 25, bottom: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Circle(color: Colors.white, size: 50),
+                    Circle(color: Colors.white, size: 50),
+                    Circle(color: Colors.white, size: 50),
+                  ],
+                ),
+              ),
+              const Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum quam vitae metus suscipit rutrum.',
+                textAlign: TextAlign.center,
               ),
             ],
           ),
