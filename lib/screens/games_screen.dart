@@ -9,7 +9,10 @@ class GamesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(title: 'Games'),
+      appBar: const CustomAppBar(
+        title: 'Games',
+        leading: NeuBackButton(),
+      ),
       body: CircleBackground(
         childWidget: Column(
           children: [

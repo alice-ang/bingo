@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:bingo/widgets/widgets.dart';
@@ -20,9 +21,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
       // home: const GamesScreen(),
-      home: const GamesScreen(
-          // title: 'Home',
-          ),
+      home: const GamesScreen(),
     );
   }
 }
@@ -102,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           )),
       body: CircleBackground(
         childWidget: Center(

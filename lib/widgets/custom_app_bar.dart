@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key, required this.title}) : super(key: key);
+  const CustomAppBar(
+      {Key? key, required this.title, this.leading, this.trailing})
+      : super(key: key);
 
   final String title;
+  final Widget? leading;
+  final Widget? trailing;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 40);
@@ -18,12 +22,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    if (leading != null) ...[
+                      leading!,
+                    ],
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    trailing ?? const Text(''),
+                  ],
                 ),
               ],
             ),
