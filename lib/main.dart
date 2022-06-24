@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xfff5f2d9),
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
-      home: const GamesScreen(),
+      home: const LoginScreen(),
       // home: const MyHomePage(
       //   title: 'Home',
       // ),
@@ -83,6 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       size: 26,
                       color: Colors.black,
                     ),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
                   ),
                   Text(
                     widget.title,

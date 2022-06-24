@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bingo/widgets/widgets.dart';
+import 'package:lottie/lottie.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,25 +23,29 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Bingo App',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30,
+              Column(
+                children: [
+                  const Text(
+                    'Foggy Goggles',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
+                  Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(0),
+                        child: Lottie.network(
+                          height: 160,
+                          animate: false,
+                          'https://assets5.lottiefiles.com/packages/lf20_6aYlBl.json',
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               Container(
                 decoration: BoxDecoration(
@@ -54,10 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                padding: const EdgeInsets.only(left: 12, right: 12),
                 child: TextField(
                   controller: nameController,
-                  cursorColor: Colors.yellow,
+                  cursorColor: Colors.orange,
                   decoration: const InputDecoration(
                     labelText: 'User Name',
                     labelStyle: TextStyle(fontSize: 18, color: Colors.black),
@@ -65,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.all(10)),
+              const Padding(padding: EdgeInsets.only(top: 12, bottom: 12)),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -79,9 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                padding: const EdgeInsets.only(left: 12, right: 12),
                 child: TextField(
-                  cursorColor: Colors.yellow,
+                  cursorColor: Colors.orange,
                   obscureText: true,
                   controller: passwordController,
                   decoration: const InputDecoration(
@@ -122,27 +128,54 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Padding(
-                    padding: EdgeInsets.only(top: 18),
-                  ),
-                  const Text('Do not have an account?'),
-                  TextButton(
-                    child: const Text(
-                      'Register',
-                      style: TextStyle(
-                        fontSize: 14,
+              const Padding(padding: EdgeInsets.only(top: 12, bottom: 12)),
+              const Text(
+                'Or continue with',
+                textAlign: TextAlign.center,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 25, bottom: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    NeuButton(
+                      color: Colors.white,
+                      icon: const Icon(
+                        FontAwesomeIcons.apple,
                         color: Colors.black,
-                        fontWeight: FontWeight.bold,
                       ),
+                      size: 50,
+                      shape: BoxShape.circle,
+                      onPressed: () {
+                        print('apple');
+                      },
                     ),
-                    onPressed: () {
-                      //signup screen
-                    },
-                  )
-                ],
+                    NeuButton(
+                      color: Colors.white,
+                      icon: const Icon(
+                        FontAwesomeIcons.google,
+                        color: Colors.red,
+                      ),
+                      size: 50,
+                      shape: BoxShape.circle,
+                      onPressed: () {
+                        print('google');
+                      },
+                    ),
+                    NeuButton(
+                      color: Colors.white,
+                      icon: const Icon(
+                        FontAwesomeIcons.facebook,
+                        color: Colors.blue,
+                      ),
+                      size: 50,
+                      shape: BoxShape.circle,
+                      onPressed: () {
+                        print('facebook');
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
