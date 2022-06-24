@@ -83,6 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       size: 26,
                       color: Colors.black,
                     ),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
                   ),
                   Text(
                     widget.title,
