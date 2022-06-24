@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
       // home: const GamesScreen(),
-      home: const MyHomePage(
-        title: 'Home',
-      ),
+      home: const GamesScreen(
+          // title: 'Home',
+          ),
     );
   }
 }

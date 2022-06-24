@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:widgetbook/widgetbook.dart';
-import 'package:bingo/widgets/widgets.dart';
 import 'package:bingo/screens/screens.dart';
+
+import 'screens/screens.dart';
+import 'widgets/widgets.dart';
 
 class HotReload extends StatelessWidget {
   const HotReload({Key? key}) : super(key: key);
@@ -20,13 +19,11 @@ class HotReload extends StatelessWidget {
               name: 'Buttons',
               widgets: [
                 WidgetbookComponent(
-                  name: 'NeuButton',
+                  name: 'Cicles',
                   useCases: [
                     WidgetbookUseCase(
-                      name: 'Default',
-                      builder: (context) => const Text(
-                        'The brown fox ...',
-                      ),
+                      name: 'CircleBackground',
+                      builder: (context) => const CircleBackgroundStory(),
                     ),
                   ],
                 ),
@@ -39,17 +36,7 @@ class HotReload extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'NeuCard',
-                  builder: (context) => SizedBox(
-                    height: 180,
-                    child: NeuCard(
-                      header: context.knobs
-                          .text(label: 'Header', initialValue: 'Header'),
-                      title: context.knobs
-                          .text(label: 'Title', initialValue: 'Title'),
-                      subTitle: context.knobs
-                          .text(label: 'Subtitle', initialValue: 'Subtitle'),
-                    ),
-                  ),
+                  builder: (context) => const NeuCardStory(),
                 ),
               ],
             ),
@@ -76,11 +63,11 @@ class HotReload extends StatelessWidget {
               name: 'Games',
               widgets: [
                 WidgetbookComponent(
-                  name: 'Games',
+                  name: 'GamesScreen',
                   useCases: [
                     WidgetbookUseCase(
                       name: 'GamesScreen',
-                      builder: (context) => const GamesScreen(),
+                      builder: (context) => const GamesScreenStory(),
                     ),
                   ],
                 ),
