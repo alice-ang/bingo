@@ -22,16 +22,17 @@ class _LoginScreenState extends State<LoginScreen> {
           child: ListView(
             children: <Widget>[
               Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10),
-                  child: const Text(
-                    'Bingo App',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30,
-                    ),
-                  )),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  'Bingo App',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
               Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
