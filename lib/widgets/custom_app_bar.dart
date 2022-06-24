@@ -18,12 +18,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: ClipPath(
           clipper: WaveClip(),
           child: Container(
+            padding: const EdgeInsets.only(left: 16, right: 16),
             color: Colors.redAccent,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     if (leading != null) ...[
                       leading!,

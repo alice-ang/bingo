@@ -16,14 +16,23 @@ class HotReload extends StatelessWidget {
           name: 'Widgets',
           folders: [
             WidgetbookFolder(
-              name: 'Buttons',
+              name: 'Cicles',
               widgets: [
                 WidgetbookComponent(
-                  name: 'Cicles',
+                  name: 'CircleBackground',
                   useCases: [
                     WidgetbookUseCase(
                       name: 'CircleBackground',
                       builder: (context) => const CircleBackgroundStory(),
+                    ),
+                  ],
+                ),
+                WidgetbookComponent(
+                  name: 'Circle',
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'Circle',
+                      builder: (context) => const CircleStory(),
                     ),
                   ],
                 ),
