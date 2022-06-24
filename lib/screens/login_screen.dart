@@ -128,28 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Padding(
-                    padding: EdgeInsets.only(top: 18),
-                  ),
-                  const Text('Do not have an account?'),
-                  TextButton(
-                    child: const Text(
-                      'Register',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: () {
-                      //signup screen
-                    },
-                  )
-                ],
-              ),
+              const Padding(padding: EdgeInsets.only(top: 12, bottom: 12)),
               const Text(
                 'Or continue with',
                 textAlign: TextAlign.center,
@@ -167,6 +146,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       size: 50,
                       shape: BoxShape.circle,
+                      onPressed: () {
+                        print('apple');
+                      },
                     ),
                     NeuButton(
                       color: Colors.white,
@@ -176,6 +158,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       size: 50,
                       shape: BoxShape.circle,
+                      onPressed: () {
+                        print('google');
+                      },
                     ),
                     NeuButton(
                       color: Colors.white,
@@ -185,6 +170,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       size: 50,
                       shape: BoxShape.circle,
+                      onPressed: () {
+                        print('facebook');
+                      },
                     ),
                   ],
                 ),
