@@ -5,15 +5,17 @@ class NeuButton extends StatefulWidget {
       {Key? key,
       required this.color,
       required this.icon,
-      required this.radius,
-      required this.size})
+      this.radius,
+      required this.size,
+      this.shape})
       : super(
           key: key,
         );
 
   final Color color;
   final Widget icon;
-  final BorderRadius radius;
+  final BorderRadius? radius;
+  final BoxShape? shape;
   final double size;
 
   @override
@@ -28,6 +30,7 @@ class _NeuButtonState extends State<NeuButton> {
         color: widget.color,
         border: Border.all(color: Colors.black, width: 3),
         borderRadius: widget.radius,
+        shape: widget.shape!,
         boxShadow: const [
           BoxShadow(
             color: Colors.black,

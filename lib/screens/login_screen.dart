@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bingo/widgets/widgets.dart';
 import 'package:lottie/lottie.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Column(
                 children: [
                   const Text(
-                    'Kooligans',
+                    'Foggy Goggles',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -34,16 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Stack(
                     children: [
-                      Lottie.network(
-                          width: 350,
-                          animate: false,
-                          'https://assets5.lottiefiles.com/private_files/lf30_Y45aue.json'),
                       Padding(
                         padding: const EdgeInsets.all(0),
                         child: Lottie.network(
-                            height: 250,
-                            animate: false,
-                            'https://assets5.lottiefiles.com/packages/lf20_6aYlBl.json'),
+                          height: 160,
+                          animate: false,
+                          'https://assets5.lottiefiles.com/packages/lf20_6aYlBl.json',
+                        ),
                       ),
                     ],
                   ),
@@ -62,10 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                padding: const EdgeInsets.only(left: 12, right: 12),
                 child: TextField(
                   controller: nameController,
-                  cursorColor: Colors.yellow,
+                  cursorColor: Colors.orange,
                   decoration: const InputDecoration(
                     labelText: 'User Name',
                     labelStyle: TextStyle(fontSize: 18, color: Colors.black),
@@ -73,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.all(10)),
+              const Padding(padding: EdgeInsets.only(top: 12, bottom: 12)),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -87,9 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                padding: const EdgeInsets.only(left: 12, right: 12),
                 child: TextField(
-                  cursorColor: Colors.yellow,
+                  cursorColor: Colors.orange,
                   obscureText: true,
                   controller: passwordController,
                   decoration: const InputDecoration(
@@ -161,15 +159,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    Circle(color: Colors.white, size: 50),
-                    Circle(color: Colors.white, size: 50),
-                    Circle(color: Colors.white, size: 50),
+                    NeuButton(
+                      color: Colors.white,
+                      icon: const Icon(
+                        FontAwesomeIcons.apple,
+                        color: Colors.black,
+                      ),
+                      size: 50,
+                      shape: BoxShape.circle,
+                    ),
+                    NeuButton(
+                      color: Colors.white,
+                      icon: const Icon(
+                        FontAwesomeIcons.google,
+                        color: Colors.red,
+                      ),
+                      size: 50,
+                      shape: BoxShape.circle,
+                    ),
+                    NeuButton(
+                      color: Colors.white,
+                      icon: const Icon(
+                        FontAwesomeIcons.facebook,
+                        color: Colors.blue,
+                      ),
+                      size: 50,
+                      shape: BoxShape.circle,
+                    ),
                   ],
                 ),
-              ),
-              const Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum quam vitae metus suscipit rutrum.',
-                textAlign: TextAlign.center,
               ),
             ],
           ),
