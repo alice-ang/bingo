@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bingo/widgets/widgets.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,17 +22,32 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(18),
-                child: const Text(
-                  'Foggy goggles',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30,
+              Column(
+                children: [
+                  const Text(
+                    'Kooligans',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
                   ),
-                ),
+                  Stack(
+                    children: [
+                      Lottie.network(
+                          width: 350,
+                          animate: false,
+                          'https://assets5.lottiefiles.com/private_files/lf30_Y45aue.json'),
+                      Padding(
+                        padding: const EdgeInsets.all(0),
+                        child: Lottie.network(
+                            height: 250,
+                            animate: false,
+                            'https://assets5.lottiefiles.com/packages/lf20_6aYlBl.json'),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               Container(
                 decoration: BoxDecoration(
