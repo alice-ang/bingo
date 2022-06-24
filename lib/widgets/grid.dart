@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Grid extends StatefulWidget {
-  const Grid({Key? key, required this.size}) : super(key: key);
+  const Grid({
+    Key? key,
+    required this.size,
+    this.gridColor = Colors.white,
+    this.tileColor = Colors.yellow,
+  }) : super(key: key);
 
   final int size;
+  final Color? gridColor;
+  final Color? tileColor;
 
   @override
   _GridState createState() => _GridState();
@@ -62,8 +69,9 @@ class _GridState extends State<Grid> {
                   _checkIsClicked(index);
                 })
               },
-              fillColor:
-                  _clickedTiles.contains(index) ? Colors.yellow : Colors.white,
+              fillColor: _clickedTiles.contains(index)
+                  ? widget.tileColor
+                  : widget.gridColor,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(8),

@@ -49,6 +49,15 @@ class HotReload extends StatelessWidget {
                 ),
               ],
             ),
+            WidgetbookComponent(
+              name: 'Grid',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Grid',
+                  builder: (context) => const GridStory(),
+                ),
+              ],
+            ),
           ],
         ),
         WidgetbookCategory(

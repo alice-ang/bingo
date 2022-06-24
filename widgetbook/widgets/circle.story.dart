@@ -18,7 +18,7 @@ class CircleStory extends StatelessWidget {
       label: 'Colors',
       options: [
         ...colorOptions.map(
-          (color) => Option(label: color.toString(), value: color),
+          (color) => Option(label: color.value.toString(), value: color),
         ),
       ],
     );
