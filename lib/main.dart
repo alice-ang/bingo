@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:bingo/widgets/widgets.dart';
@@ -19,10 +20,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xfff5f2d9),
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
-      home: const LoginScreen(),
-      // home: const MyHomePage(
-      //   title: 'Home',
-      // ),
+      // home: const GamesScreen(),
+      home: const GamesScreen(),
     );
   }
 }
@@ -57,9 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
     const Text("HEK"),
   ];
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       extendBody: true,
       appBar: PreferredSize(
@@ -69,11 +71,12 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
             title: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  NeuButton(
-                    size: 26,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Builder(
+                  builder: (context) => NeuButton(
+                    size: 32,
                     radius: const BorderRadius.all(
                       Radius.circular(0),
                     ),
@@ -83,21 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
                       size: 26,
                       color: Colors.black,
                     ),
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    },
+                    onPressed: () => Scaffold.of(context).openDrawer(),
                   ),
-                  Text(
-                    widget.title,
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30),
-                  ),
-                  const Text(
-                    '',
-                  )
-                ]),
+                ),
+                Text(
+                  widget.title,
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30),
+                ),
+                const Text(
+                  '',
+                )
+              ],
+            ),
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           )),
       body: CircleBackground(
         childWidget: Center(

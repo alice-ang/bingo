@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class NeuCard extends StatelessWidget {
   const NeuCard(
-      {Key? key, required this.header, this.title, this.subTitle, this.imgUrl})
+      {Key? key,
+      required this.header,
+      this.headerColor,
+      this.title,
+      this.subTitle,
+      this.imgUrl})
       : super(key: key);
 
   final String header;
+  final Color? headerColor;
   final String? title;
   final String? subTitle;
   final String? imgUrl;
@@ -37,7 +43,7 @@ class NeuCard extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.purple.shade100,
+                      color: headerColor ?? Colors.purple.shade100,
                       border: const Border(
                         bottom: BorderSide(color: Colors.black, width: 3),
                       ),
@@ -74,6 +80,8 @@ class NeuCard extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 12),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             title!,

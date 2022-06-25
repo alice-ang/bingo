@@ -1,18 +1,24 @@
-import 'package:bingo/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:bingo/widgets/widgets.dart';
 
 class GamesScreen extends StatelessWidget {
-  const GamesScreen({Key? key}) : super(key: key);
+  const GamesScreen({Key? key, this.gamesCount}) : super(key: key);
 
+  final int? gamesCount;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: const CustomAppBar(
+        title: 'Games',
+        leading: NeuBackButton(),
+      ),
       body: CircleBackground(
         childWidget: Column(
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 7,
+                itemCount: gamesCount ?? 5,
                 itemBuilder: (BuildContext context, int index) {
                   return const NeuCard(
                     header: 'Truth or dare',
