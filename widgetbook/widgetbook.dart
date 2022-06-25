@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
-import 'package:bingo/screens/screens.dart';
-
 import 'screens/screens.dart';
 import 'widgets/widgets.dart';
 
