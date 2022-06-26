@@ -77,9 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Builder(
                   builder: (context) => NeuButton(
                     size: 32,
-                    radius: const BorderRadius.all(
-                      Radius.circular(0),
-                    ),
                     color: Colors.red,
                     icon: const Icon(
                       Icons.menu,

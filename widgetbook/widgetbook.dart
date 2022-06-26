@@ -36,17 +36,31 @@ class HotReload extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-          widgets: [
-            WidgetbookComponent(
-              name: 'NeuCard',
-              useCases: [
-                WidgetbookUseCase(
+            WidgetbookFolder(
+              name: 'Neu',
+              widgets: [
+                WidgetbookComponent(
                   name: 'NeuCard',
-                  builder: (context) => const NeuCardStory(),
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'NeuCard',
+                      builder: (context) => const NeuCardStory(),
+                    ),
+                  ],
+                ),
+                WidgetbookComponent(
+                  name: 'NeuButton',
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'NeuButton',
+                      builder: (context) => const NeuButtonStory(),
+                    ),
+                  ],
                 ),
               ],
             ),
+          ],
+          widgets: [
             WidgetbookComponent(
               name: 'Grid',
               useCases: [
