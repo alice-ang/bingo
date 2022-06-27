@@ -7,3 +7,4 @@ export 'circle.dart';
 export 'grid.dart';
 export 'neu_button.dart';
 export 'styled_drawer.dart';
+export 'wheel.dart';

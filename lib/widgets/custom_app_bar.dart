@@ -10,11 +10,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? trailing;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 40);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 50);
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight + 40),
+        preferredSize: const Size.fromHeight(kToolbarHeight + 50),
         child: ClipPath(
           clipper: WaveClip(),
           child: Container(

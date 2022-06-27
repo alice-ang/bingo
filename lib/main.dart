@@ -16,12 +16,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xfff5f2d9),
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
       // home: const GamesScreen(),
       home: const GamesScreen(),
+      routes: {
+        // '/': (context) => const firstRoute(),
+        // '/second': (context) => const secondRoute(),
+      },
     );
   }
 }

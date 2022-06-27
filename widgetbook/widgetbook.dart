@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'screens/screens.dart';
+import 'widgets/wheel.story.dart';
 import 'widgets/widgets.dart';
 
 class HotReload extends StatelessWidget {
@@ -59,6 +60,20 @@ class HotReload extends StatelessWidget {
                 ),
               ],
             ),
+            WidgetbookFolder(
+              name: 'AppBar',
+              widgets: [
+                WidgetbookComponent(
+                  name: 'Wavy',
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'CustomAppBar ',
+                      builder: (context) => const CustomAppBarStory(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ],
           widgets: [
             WidgetbookComponent(
@@ -67,6 +82,15 @@ class HotReload extends StatelessWidget {
                 WidgetbookUseCase(
                   name: 'Grid',
                   builder: (context) => const GridStory(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Wheel',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Wheel',
+                  builder: (context) => const WheelStory(),
                 ),
               ],
             ),
