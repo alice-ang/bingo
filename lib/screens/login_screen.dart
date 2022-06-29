@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bingo/widgets/widgets.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,6 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.black),
+    );
     return Material(
       color: const Color(0xfff5f2d9),
       child: CircleBackground(
@@ -98,35 +102,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               TextButton(
-                  onPressed: () {
-                    //forgot password screen
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  )),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black, // Background color
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(fontSize: 18),
-                  ),
+                onPressed: () {
+                  //forgot password screen
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
+              ),
+              const BasicButton(
+                text: 'Login',
+                variant: ButtonVariant.primary,
               ),
               const Padding(padding: EdgeInsets.only(top: 12, bottom: 12)),
               const Text(

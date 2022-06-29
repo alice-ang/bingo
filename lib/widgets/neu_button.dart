@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NeuButton extends StatefulWidget {
   const NeuButton(
@@ -46,7 +47,10 @@ class _NeuButtonState extends State<NeuButton> {
         height: widget.size,
         width: widget.size,
         child: TextButton(
-          onPressed: widget.onPressed,
+          onPressed: () {
+            HapticFeedback.selectionClick();
+            widget.onPressed;
+          },
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,

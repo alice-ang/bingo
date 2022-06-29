@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
       // home: const GamesScreen(),
-      home: const GamesScreen(),
+      home: const LoginScreen(),
       routes: {
         // '/': (context) => const firstRoute(),
         // '/second': (context) => const secondRoute(),

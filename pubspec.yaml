@@ -41,7 +41,13 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   font_awesome_flutter: ^10.1.0
   auto_route: ^4.0.1
+  flutter_launcher_icons: ^0.9.3
   
+flutter_icons:
+image_path: "assets/icon.png"
+android: true
+ios: true
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
