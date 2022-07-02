@@ -8,24 +8,23 @@ class GamesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(
-        title: 'Games',
-        leading: NeuBackButton(),
+      appBar: AppBar(
+        title: const Text('Games'),
+        leading: const NeuBackButton(),
       ),
       body: CircleBackground(
-        childWidget: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: gamesCount ?? 5,
-                itemBuilder: (BuildContext context, int index) {
+        childWidget: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
                   return const NeuCard(
                     header: 'Truth or dare',
                     title: 'Another title',
                     subTitle: 'Feel free to spin the wheel',
                   );
                 },
+                childCount: 4,
               ),
             ),
           ],

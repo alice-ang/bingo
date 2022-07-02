@@ -1,3 +1,4 @@
+import 'package:bingo/screens/screens.dart';
 import 'package:bingo/widgets/circle_background.dart';
 import 'package:flutter/material.dart';
 
@@ -9,44 +10,15 @@ class StyledDrawer extends StatefulWidget {
 }
 
 class _DrawerState extends State<StyledDrawer> {
-  List menu = List.generate(
-    4,
-    (int index) {
-      return Container(
-        margin: const EdgeInsets.only(top: 24, right: 24, left: 24),
-        decoration: BoxDecoration(
-            color: Colors.greenAccent.shade200,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(0),
-            ),
-            border: Border.all(color: Colors.black, width: 3),
-            boxShadow: const [
-              BoxShadow(
-                spreadRadius: 0,
-                blurRadius: 0,
-                offset: Offset(3, 6),
-              )
-            ]),
-        child: ListTile(
-          style: ListTileStyle.list,
-          title: Center(
-              child: Text(
-            'Item ${index + 1}',
-            style: const TextStyle(fontSize: 16, color: Colors.black),
-          )),
-        ),
-      );
-    },
-  );
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: const Color(0xfff5f2d9),
-      child: ListView(children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: DrawerHeader(
+      child: CustomScrollView(slivers: [
+        SliverToBoxAdapter(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: DrawerHeader(
               margin: EdgeInsets.zero,
               decoration: BoxDecoration(
                 color: Colors.deepPurple.shade300,
@@ -91,9 +63,50 @@ class _DrawerState extends State<StyledDrawer> {
                     ),
                   ]),
                 ],
-              )),
+              ),
+            ),
+          ),
         ),
-        ...menu,
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              return Container(
+                margin: const EdgeInsets.only(top: 24, right: 24, left: 24),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(0),
+                    ),
+                    border: Border.all(color: Colors.black, width: 3),
+                    boxShadow: const [
+                      BoxShadow(
+                        spreadRadius: 0,
+                        blurRadius: 0,
+                        offset: Offset(3, 6),
+                      )
+                    ]),
+                child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const GamesScreen(),
+                      ),
+                    );
+                  },
+                  style: ListTileStyle.list,
+                  title: Center(
+                    child: Text(
+                      'Item ${index + 1}',
+                      style: const TextStyle(fontSize: 16, color: Colors.black),
+                    ),
+                  ),
+                ),
+              );
+            },
+            childCount: 4,
+          ),
+        ),
       ]),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'screens/screens.dart';
+import 'widgets/wheel.story.dart';
 import 'widgets/widgets.dart';
 
 class HotReload extends StatelessWidget {
@@ -36,23 +37,60 @@ class HotReload extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-          widgets: [
-            WidgetbookComponent(
-              name: 'NeuCard',
-              useCases: [
-                WidgetbookUseCase(
+            WidgetbookFolder(
+              name: 'Neu',
+              widgets: [
+                WidgetbookComponent(
                   name: 'NeuCard',
-                  builder: (context) => const NeuCardStory(),
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'NeuCard',
+                      builder: (context) => const NeuCardStory(),
+                    ),
+                  ],
+                ),
+                WidgetbookComponent(
+                  name: 'NeuButton',
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'NeuButton',
+                      builder: (context) => const NeuButtonStory(),
+                    ),
+                  ],
                 ),
               ],
             ),
+            WidgetbookFolder(
+              name: 'AppBar',
+              widgets: [
+                WidgetbookComponent(
+                  name: 'Wavy',
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'CustomAppBar ',
+                      builder: (context) => const CustomAppBarStory(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+          widgets: [
             WidgetbookComponent(
               name: 'Grid',
               useCases: [
                 WidgetbookUseCase(
                   name: 'Grid',
                   builder: (context) => const GridStory(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Wheel',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Wheel',
+                  builder: (context) => const WheelStory(),
                 ),
               ],
             ),
