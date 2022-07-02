@@ -86,12 +86,15 @@ class _GridState extends State<Grid> {
                   side: BorderSide(color: Colors.black, width: 2),
                 ),
               ),
-              child: const AutoSizeText(
-                '"Youre tearing me apart Lisa!"',
-                softWrap: true,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+              child: const Center(
+                child: AutoSizeText(
+                  '"Youre tearing me apart Lisa!"',
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
