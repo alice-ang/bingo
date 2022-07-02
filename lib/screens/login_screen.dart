@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.all(0),
                         child: Lottie.network(
                           height: 160,
-                          animate: false,
+                          animate: true,
                           'https://assets5.lottiefiles.com/packages/lf20_6aYlBl.json',
                         ),
                       ),
