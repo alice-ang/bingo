@@ -83,42 +83,44 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       drawer: StyledDrawer(),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(0),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(0),
+            ),
+            border: Border.all(color: Colors.black, width: 3),
+            boxShadow: const [
+              BoxShadow(
+                spreadRadius: 0,
+                blurRadius: 0,
+                offset: Offset(3, 4),
+              )
+            ],
           ),
-          border: Border.all(color: Colors.black, width: 3),
-          boxShadow: const [
-            BoxShadow(
-              spreadRadius: 0,
-              blurRadius: 0,
-              offset: Offset(3, 4),
-            )
-          ],
-        ),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.lightGreen.shade200,
-          unselectedItemColor: Colors.black,
-          elevation: 0,
-          selectedItemColor: Colors.red,
-          onTap: _onItemTapped,
-          currentIndex: _selectedIndex,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.gamepad),
-              label: 'Game',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: 'Rules',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Account',
-            ),
-          ],
+          child: BottomNavigationBar(
+            backgroundColor: Colors.lightGreen.shade200,
+            unselectedItemColor: Colors.black,
+            elevation: 0,
+            selectedItemColor: Colors.red,
+            onTap: _onItemTapped,
+            currentIndex: _selectedIndex,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.gamepad),
+                label: 'Game',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.add),
+                label: 'Rules',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Account',
+              ),
+            ],
+          ),
         ),
       ),
     );
