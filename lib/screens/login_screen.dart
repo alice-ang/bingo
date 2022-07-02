@@ -3,6 +3,7 @@ import 'package:bingo/widgets/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bingo/screens/screens.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -116,9 +117,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              const BasicButton(
+              BasicButton(
                 text: 'Login',
                 variant: ButtonVariant.primary,
+                onTap: () {
+                  HapticFeedback.selectionClick();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(
+                        title: 'Homepage title',
+                      ),
+                    ),
+                  );
+                },
               ),
               const Padding(padding: EdgeInsets.only(top: 12, bottom: 12)),
               const Text(

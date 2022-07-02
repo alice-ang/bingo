@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NeuButton extends StatefulWidget {
-  const NeuButton(
-      {Key? key,
-      required this.color,
-      required this.icon,
-      this.radius,
-      required this.size,
-      this.onPressed,
-      this.shape})
-      : super(
+  const NeuButton({
+    Key? key,
+    required this.color,
+    required this.icon,
+    this.radius,
+    required this.size,
+    this.onPressed,
+    this.shape,
+  }) : super(
           key: key,
         );
 
@@ -47,10 +47,7 @@ class _NeuButtonState extends State<NeuButton> {
         height: widget.size,
         width: widget.size,
         child: TextButton(
-          onPressed: () {
-            HapticFeedback.selectionClick();
-            widget.onPressed;
-          },
+          onPressed: widget.onPressed,
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,

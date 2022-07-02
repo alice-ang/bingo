@@ -16,10 +16,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight + 50),
         child: ClipPath(
-          clipper: WaveClip(),
+          // clipper: WaveClip(),
           child: Container(
             padding: const EdgeInsets.only(left: 16, right: 16),
-            color: Colors.redAccent,
+            color: Colors.transparent,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

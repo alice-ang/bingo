@@ -4,14 +4,14 @@ import 'package:flutter/services.dart';
 enum ButtonVariant { primary, secondary }
 
 class BasicButton extends StatelessWidget {
-  const BasicButton(
-      {this.onPressed,
+  BasicButton(
+      {this.onTap,
       required this.text,
       required this.variant,
       this.isDisabled,
       this.isLoading});
 
-  final VoidCallback? onPressed;
+  final VoidCallback? onTap;
   final String text;
   final ButtonVariant variant;
   final bool? isLoading;
@@ -45,10 +45,7 @@ class BasicButton extends StatelessWidget {
       height: 50,
       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       child: ElevatedButton(
-        onPressed: () {
-          HapticFeedback.selectionClick();
-          onPressed;
-        },
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
           primary: _getButtonColor(variant),
         ),
