@@ -40,41 +40,25 @@ class _HomePageState extends State<HomePage> {
       key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       extendBody: true,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(65.0),
-        child: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          automaticallyImplyLeading: false,
-          title: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Builder(
-                builder: (context) => NeuButton(
-                  size: 32,
-                  color: Colors.red,
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 26,
-                    color: Colors.black,
-                  ),
-                  onPressed: () => Scaffold.of(context).openDrawer(),
-                ),
-              ),
-              Text(
-                widget.title,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
-              ),
-              const Text(
-                '',
-              )
-            ],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          widget.title,
+          style:
+              const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        leading: Builder(
+          builder: (context) => NeuButton(
+            size: 32,
+            color: Colors.white,
+            icon: const Icon(
+              Icons.menu,
+              size: 26,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
           ),
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
       ),
       body: CircleBackground(

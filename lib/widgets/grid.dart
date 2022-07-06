@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class Grid extends StatefulWidget {
-  const Grid({
-    Key? key,
-    required this.size,
-    this.gridColor = Colors.white,
-    this.tileColor = Colors.yellow,
-  }) : super(key: key);
+  const Grid(
+      {Key? key,
+      required this.size,
+      this.gridColor = Colors.white,
+      this.tileColor = Colors.yellow,
+      this.rule})
+      : super(key: key);
 
   final int size;
   final Color? gridColor;
   final Color? tileColor;
-
+  final String? rule;
   @override
   _GridState createState() => _GridState();
 }
@@ -21,6 +22,19 @@ class _GridState extends State<Grid> {
   int _clickedId = 0;
   bool isCrossed = false;
   final List _clickedTiles = [];
+
+  double getSpacing(size) {
+    switch (size) {
+      case 3:
+        return 12;
+      case 4:
+        return 8;
+      case 5:
+        return 8;
+      default:
+        return 0;
+    }
+  }
 
   bool _checkIsClicked(idx) {
     if (_clickedId == idx && !_clickedTiles.contains(idx)) {
@@ -47,8 +61,8 @@ class _GridState extends State<Grid> {
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(8),
       crossAxisCount: widget.size,
-      crossAxisSpacing: 12,
-      mainAxisSpacing: 12,
+      crossAxisSpacing: getSpacing(widget.size),
+      mainAxisSpacing: getSpacing(widget.size),
       children: List.generate(
         widget.size * widget.size,
         (int index) {

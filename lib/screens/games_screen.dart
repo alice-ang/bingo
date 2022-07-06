@@ -9,7 +9,12 @@ class GamesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Games'),
+        shape: const Border(bottom: BorderSide(color: Colors.black, width: 4)),
+        backgroundColor: Colors.purple.shade100,
+        title: const Text(
+          'Games',
+          style: TextStyle(color: Colors.black),
+        ),
         leading: const NeuBackButton(),
       ),
       body: CircleBackground(
@@ -24,7 +29,7 @@ class GamesScreen extends StatelessWidget {
                     subTitle: 'Feel free to spin the wheel',
                   );
                 },
-                childCount: 4,
+                childCount: 10,
               ),
             ),
           ],

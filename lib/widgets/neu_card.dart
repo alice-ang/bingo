@@ -43,7 +43,7 @@ class NeuCard extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: headerColor ?? Colors.purple.shade100,
+                      color: headerColor ?? Colors.green.shade100,
                       border: const Border(
                         bottom: BorderSide(color: Colors.black, width: 3),
                       ),

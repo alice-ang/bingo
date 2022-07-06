@@ -7,6 +7,8 @@ class GridStory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rule = context.knobs
+        .text(label: 'Rule', initialValue: '"Youre tearing me apart Lisa!"');
     final gridSize = context.knobs.options(
       label: 'Grid size',
       options: [
@@ -19,6 +21,7 @@ class GridStory extends StatelessWidget {
     return Center(
       child: Grid(
         size: gridSize,
+        rule: rule,
       ),
     );
   }
